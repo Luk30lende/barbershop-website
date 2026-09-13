@@ -142,7 +142,7 @@ img {
   width: 100%;
   top: 0;
   left: 0;
-  background-color: #000;
+  background-color: transparent;
   z-index: var(--z-fixed);
   transition:
     background-color 0.4s,
@@ -231,12 +231,82 @@ img {
 }
 
 /* Change header styles */
+.scroll-header {
+  background-color: var(--body-color);
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.15);
+}
+
+.scroll-header :is(.nav__logo, .nav__toggle) {
+  color: var(--title-color);
+}
 
 /* Active link */
 
 /*=============== HOME SECTION ===============*/
+.home {
+  position: relative;
+  height: 800px;
+  overflow: hidden;
+}
+
+.home__bg,
+.home__shadow {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+}
+
+.home__bg {
+  object-fit: cover;
+  object-position: center;
+}
+
+.home__shadow {
+  background: linear-gradient(180deg, rgba(0, 0, 0, 0) 20%, rgb(0, 0, 0) 100%);
+}
+
+.home__container {
+  height: 100%;
+  place-items: center;
+}
+
+.home__data {
+  z-index: 10;
+  text-align: center;
+}
+
+.home__logo {
+  width: 120px;
+  margin-inline: auto;
+  margin-bottom: 1rem;
+}
+
+.home__title {
+  color: var(--white-color);
+  font-size: var(--biggest-font-size);
+}
+
+.home__description {
+  color: var(--white-color);
+  margin-block: 1rem 3rem;
+}
 
 /*=============== BUTTON ===============*/
+.button {
+  display: inline-flex;
+  background-color: var(--first-color);
+  color: var(--title-color);
+  font-weight: var(--font-semi-bold);
+  padding: 1rem 2rem;
+  border-radius: 0.5rem;
+  transition: background-color 0.4s;
+}
+
+.button:hover {
+  background-color: var(--first-color-alt);
+}
 
 /*=============== ABOUT SECTION ===============*/
 
@@ -264,6 +334,12 @@ img {
 /* For small devices <> */
 
 /* For medium devices <> */
+@media (width >= 540px) {
+  .home__container {
+    grid-template-columns: 400px;
+    justify-content: center;
+  }
+}
 
 /* For large devices <> */
 @media (width >= 1150px) {
@@ -293,6 +369,24 @@ img {
   }
   .nav__button {
     color: var(--title-color);
+  }
+
+  /* Change Header Styles */
+  .scroll-header .nav__link {
+    color: var(--title-color);
+  }
+
+  .home {
+    height: 870px;
+  }
+  .home__container {
+    grid-template-columns: 665px;
+  }
+  .home__logo {
+    width: 150px;
+  }
+  .home__description {
+    margin-bottom: 4rem;
   }
 }
 
