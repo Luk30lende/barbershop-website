@@ -517,6 +517,67 @@ img {
 }
 
 /*=============== EXPERTS SECTION ===============*/
+.expert__container {
+  row-gap: 4rem;
+}
+
+.expert__description {
+  text-align: center;
+}
+
+.expert__content {
+  display: grid;
+  justify-content: center;
+  gap: 1.5rem;
+}
+
+.expert__img {
+  width: 120px;
+  transition: scale 0.4s;
+  transform-origin: left bottom;
+}
+
+.expert__card {
+  background: var(--beige-color-light);
+  padding: 0.5rem 2rem 0 2rem;
+  border-radius: 1.5rem;
+  display: flex;
+  align-items: center;
+  gap: 1.5rem;
+}
+
+.expert__data {
+  display: grid;
+  row-gap: 1.5rem;
+}
+
+.expert__name {
+  font-size: var(--h2-font-size);
+}
+
+.expert__profession {
+  font-size: var(--smaller-font-size);
+  color: var(--text-color);
+}
+
+.expert__social {
+  display: flex;
+  column-gap: 0.5rem;
+}
+
+.expert__link {
+  font-size: 1.25rem;
+  color: var(--text-color);
+  transition: color 0.4s;
+}
+
+.expert__link:hover {
+  color: var(--title-color);
+}
+
+.expert__card:hover .expert__img {
+  scale: 1.1;
+}
 
 /*=============== CONTACT SECTION ===============*/
 
@@ -530,12 +591,28 @@ img {
 
 /*=============== BREAKPOINTS ===============*/
 /* For small devices <> */
+@media (width <= 350px) {
+  .expert__card {
+    flex-direction: column;
+    padding: 1rem 3rem 0 3rem;
+  }
+  .expert__img {
+    order: 1;
+  }
+  .expert__info {
+    text-align: center;
+  }
+  .expert__social {
+    justify-content: center;
+  }
+}
 
 /* For medium devices <> */
 @media (width >= 540px) {
   .home__container,
   .about__container,
-  .service__container {
+  .service__container,
+  .expert__container {
     grid-template-columns: 400px;
     justify-content: center;
   }
@@ -543,6 +620,12 @@ img {
   .work__data {
     width: 400px;
     margin-inline: auto;
+  }
+}
+
+@media (width >= 768px) {
+  .expert__content {
+    grid-template-columns: repeat(2, max-content);
   }
 }
 
@@ -683,6 +766,41 @@ img {
   }
   .service__prices {
     row-gap: 1.5rem;
+  }
+
+  .expert {
+    padding-bottom: 2rem;
+  }
+  .expert__container {
+    grid-template-columns: initial;
+    row-gap: 5rem;
+  }
+  .expert__description {
+    width: 550px;
+    margin-inline: auto;
+  }
+  .expert__content {
+    grid-template-columns: repeat(4, 262px);
+  }
+  .expert__card {
+    padding: 1.5rem 1.5rem 0;
+    flex-direction: column;
+  }
+  .expert__img {
+    order: 1;
+    width: 200px;
+  }
+  .expert__data {
+    width: 100%;
+    grid-template-columns: 1fr max-content;
+    column-gap: 1rem;
+  }
+  .expert__name {
+    font-size: var(--h3-font-size);
+  }
+  .expert__social {
+    flex-direction: column;
+    justify-self: flex-end;
   }
 }
 
