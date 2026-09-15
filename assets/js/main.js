@@ -71,8 +71,35 @@ const swiperTestimonial = new Swiper(".service__swiper", {
 });
 
 /*=============== SHOW SCROLL UP ===============*/
+const scrollUp = () => {
+  const scrollUp = document.getElementById("scroll-up");
+  this.scrollY >= 350
+    ? scrollUp.classList.add("show-scroll")
+    : scrollUp.classList.remove("show-scroll");
+};
+window.addEventListener("scroll", scrollUp);
 
 /*=============== SCROLL SECTIONS ACTIVE LINK ===============*/
+const sections = document.querySelectorAll("section[id]");
+
+const scrollActive = () => {
+  const scrollY = window.scrollY;
+
+  sections.forEach((section) => {
+    const id = section.id,
+      top = section.offsetTop - 50,
+      height = section.offsetHeight,
+      link = document.querySelector(".nav__menu a[href*=" + id + "]");
+
+    if (!link) return;
+
+    link.classList.toggle(
+      "active-link",
+      scrollY > top && scrollY <= top + height,
+    );
+  });
+};
+window.addEventListener("scroll", scrollActive);
 
 /*=============== GSAP ANIMATION ===============*/
 
